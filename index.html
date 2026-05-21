@@ -1,18 +1,93 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成铁智慧监督系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 </head>
-
 <body>
+    <div class="dashboard-container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="header-left">
+                <!-- 左侧装饰线条 -->
+                <div class="deco-line"></div>
+            </div>
+            <div class="header-center">
+                <h1 class="main-title">成铁智慧监督系统</h1>
+            </div>
+            <div class="header-right">
+                <div class="time-display" id="current-time">2026-05-21 12:00:00</div>
+                <div class="settings-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </div>
+            </div>
+        </header>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+        <!-- 主体内容区 -->
+        <main class="main-content">
+            <!-- 左侧面板 -->
+            <aside class="panel left-panel">
+                <div class="module-box" id="left-module-1"></div>
+                <div class="module-box" id="left-module-2"></div>
+                <div class="module-box" id="left-module-3"></div>
+                <div class="module-box" id="left-module-4"></div>
+                <div class="module-box" id="left-module-5"></div>
+            </aside>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
+            <!-- 中间主视觉与数据区 -->
+            <section class="center-panel">
+                <!-- 核心地图 -->
+                <div class="map-container" id="main-map"></div>
+                <!-- 部门预警统计 -->
+                <div class="department-stats" id="dept-stats">
+                    <!-- JS 生成 -->
+                </div>
+                <!-- 底部公告板 -->
+                <div class="bottom-notice module-box">
+                    <div class="module-header" style="margin-bottom: 0;">
+                        <div class="module-title">具体单位、预警数量</div>
+                        <button class="more-btn" style="margin-right: 10px;">更多 >></button>
+                    </div>
+                    <div class="notice-list" id="notice-list">
+                        <!-- JS 生成 -->
+                    </div>
+                </div>
+            </section>
 
+            <!-- 右侧面板 -->
+            <aside class="panel right-panel">
+                <div class="module-box" id="right-module-1">
+                    <div class="module-header"><div class="module-title">全局</div></div>
+                    <div class="chart-container" id="chart-1"></div>
+                </div>
+                <div class="module-box" id="right-module-2">
+                    <div class="module-header"><div class="module-title">四川地区</div></div>
+                    <div class="chart-container" id="chart-2"></div>
+                </div>
+                <div class="module-box" id="right-module-3">
+                    <div class="module-header"><div class="module-title">重庆地区</div></div>
+                    <div class="chart-container" id="chart-3"></div>
+                </div>
+                <div class="module-box" id="right-module-4">
+                    <div class="module-header"><div class="module-title">贵州地区</div></div>
+                    <div class="chart-container" id="chart-4"></div>
+                </div>
+                <div class="module-box" id="right-module-5">
+                    <div class="module-header"><div class="module-title">处置情况</div></div>
+                    <div class="chart-container" id="chart-5"></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+    
+    <script src="map_data.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
