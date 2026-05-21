@@ -193,11 +193,13 @@ function renderCenterMap() {
             zoom: 1.2,
             center: [105.5, 28.5],
             itemStyle: {
-                areaColor: 'rgba(0, 100, 255, 0.2)',
+                areaColor: 'rgba(0, 100, 255, 0.4)', // 加深颜色让它看起来更像一个整体
                 borderColor: '#00f3ff',
-                borderWidth: 1,
-                shadowColor: 'rgba(0, 243, 255, 0.5)',
-                shadowBlur: 10
+                borderWidth: 1, // 保持细边框
+                shadowColor: 'rgba(0, 0, 0, 0.8)', // 添加深色阴影增加立体感
+                shadowBlur: 20,
+                shadowOffsetX: 10,
+                shadowOffsetY: 10
             },
             emphasis: {
                 itemStyle: {
